@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="condition_1"/>
+        <attribute name="authors" value="Lab Programacion"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-09-23 12:33:00 p.&#8239;m."/>
+        <attribute name="created" value="TGFiIFByb2dyYW1hY2lvbjtFUVVJUE8tMTA0OzIwMjYtMDktMjM7MTI6MjQ6MjIgcC7igK9tLjsxMTg5MA=="/>
+        <attribute name="edited" value="TGFiIFByb2dyYW1hY2lvbjtFUVVJUE8tMTA0OzIwMjYtMDktMjM7MTI6MzM6MDAgcC7igK9tLjsyOzExOTk1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="num" type="Integer" array="False" size=""/>
+            <assign variable="num" expression="0"/>
+            <output expression="&quot;Enter number 1: &quot;" newline="True"/>
+            <input variable="num"/>
+            <if expression="num &gt; 0">
+                <then>
+                    <output expression="&quot;The number greater than zero&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;number less than zero&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
