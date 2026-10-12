@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="play-the-dices-CORREGIDO" />
+        <attribute name="authors" value="dell" />
+        <attribute name="about" value="" />
+        <attribute name="saved" value="2026-10-11 10:36:56 p. m." />
+        <attribute name="created" value="ZGVsbDtKSE9OTlk7MjAyNi0xMC0xMTsxMjo0ODowNiBwLsKgbS47MjQ4MQ==" />
+        <attribute name="edited" value="ZGVsbDtKSE9OTlk7MjAyNi0xMC0xMTsxMDozNjo1NiBwLsKgbS47MTc7MjY0NA==" />
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters />
+        <body>
+            <declare name="dice1, dice2, life1, life2, add, shift, counter" type="Integer" array="False" size="" />
+            <declare name="player1, player2, enter" type="String" array="False" size="" />
+            <declare name="winner" type="Boolean" array="False" size="" />
+            <assign variable="player2" expression="&quot;&quot;" />
+            <assign variable="player1" expression="&quot;&quot;" />
+            <assign variable="enter" expression="&quot;&quot;" />
+            <assign variable="add" expression="0" />
+            <assign variable="life1" expression="5" />
+            <assign variable="life2" expression="5" />
+            <assign variable="shift" expression="1" />
+            <assign variable="winner" expression="false" />
+            <assign variable="counter" expression="0" />
+            <output expression="&quot;Type the name of the player 1&quot;" newline="True" />
+            <input variable="player1" />
+            <output expression="&quot;Type the name of the player 2&quot;" newline="True" />
+            <input variable="player2" />
+            <output expression="&quot;The player&quot; &amp; player1 &amp; &quot; Start&quot;" newline="True" />
+            <output expression="&quot;Game: two players, five lives each&quot;" newline="True" />
+            <while expression="(life1 &gt; 0 &amp;&amp; life2 &gt; 0) &amp;&amp; !winner">
+                <if expression="shift = 1">
+                    <then>
+                        <output expression="&quot;Turn of &quot; &amp; player1" newline="True" />
+                    </then>
+                    <else>
+                        <output expression="&quot;Turn of &quot; &amp; player2" newline="True" />
+                    </else>
+                </if>
+                <output expression="&quot;Press Enter to roll&quot;" newline="True" />
+                <input variable="enter" />
+                <assign variable="dice1" expression="random(6) + 1" />
+                <assign variable="dice2" expression="random(6) + 1" />
+                <assign variable="add" expression="dice1 + dice2" />
+                <assign variable="counter" expression="counter + 1" />
+                <output expression="&quot;Dice 1: &quot; &amp; dice1" newline="True" />
+                <output expression="&quot;Dice 2: &quot; &amp; dice2" newline="True" />
+                <output expression="&quot;Sum: &quot; &amp; add" newline="True" />
+                <if expression="dice1 = 1 &amp;&amp; dice2 = 1">
+                    <then>
+                        <assign variable="winner" expression="true" />
+                        <if expression="shift = 1">
+                            <then>
+                                <output expression="player1 &amp; &quot; WON with double ones!&quot;" newline="True" />
+                            </then>
+                            <else>
+                                <output expression="player2 &amp; &quot; WON with double ones!&quot;" newline="True" />
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <if expression="add mod 2 = 0">
+                            <then>
+                                <output expression="&quot;Even sum. Lives stay the same&quot;" newline="True" />
+                            </then>
+                            <else>
+                                <if expression="shift = 1">
+                                    <then>
+                                        <assign variable="life1" expression="life1 - 1" />
+                                        <output expression="&quot;Lives of &quot; &amp; player1 &amp; &quot;: &quot; &amp; life1" newline="True" />
+                                    </then>
+                                    <else>
+                                        <assign variable="life2" expression="life2 - 1" />
+                                        <output expression="&quot;Lives of &quot; &amp; player2 &amp; &quot;: &quot; &amp; life2" newline="True" />
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                        <if expression="life1 = 0">
+                            <then>
+                                <output expression="player2 &amp; &quot; WON! &quot; &amp; player1 &amp; &quot; ran out of lives.&quot;" newline="True" />
+                                <assign variable="winner" expression="true" />
+                            </then>
+                            <else>
+                                <if expression="life2 = 0">
+                                    <then>
+                                        <output expression="player1 &amp; &quot; WON! &quot; &amp; player2 &amp; &quot; ran out of lives.&quot;" newline="True" />
+                                        <assign variable="winner" expression="true" />
+                                    </then>
+                                    <else />
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <if expression="!winner">
+                    <then>
+                        <if expression="shift = 1">
+                            <then>
+                                <assign variable="shift" expression="2" />
+                            </then>
+                            <else>
+                                <assign variable="shift" expression="1" />
+                            </else>
+                        </if>
+                    </then>
+                    <else />
+                </if>
+            </while>
+            <output expression="&quot;Total rolls: &quot; &amp; counter" newline="True" />
+            <output expression="&quot;Final lives - &quot; &amp; player1 &amp; &quot;: &quot; &amp; life1" newline="True" />
+            <output expression="&quot;Final lives - &quot; &amp; player2 &amp; &quot;: &quot; &amp; life2" newline="True" />
+        </body>
+    </function>
+</flowgorithm>
