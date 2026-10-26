@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="loop1"/>
+        <attribute name="authors" value="Lab Analisis Datos"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-26 03:35:56 p.&#8239;m."/>
+        <attribute name="created" value="TGFiIEFuYWxpc2lzIERhdG9zO0VRVUlQTy0yMjA7MjAyNi0xMC0yNjswMjozNzowNCBwLuKAr20uOzExOTk2"/>
+        <attribute name="edited" value="TGFiIEFuYWxpc2lzIERhdG9zO0VRVUlQTy0yMjA7MjAyNi0xMC0yNjswMzozNTo1NiBwLuKAr20uOzI7MTIxMTE="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i, dice1, dice2, add, pair, odd, equal" type="Integer" array="False" size=""/>
+            <declare name="key" type="String" array="False" size=""/>
+            <assign variable="pair" expression="0"/>
+            <assign variable="odd" expression="0"/>
+            <assign variable="equal" expression="0"/>
+            <for variable="i" start="1" end="10" direction="inc" step="1">
+                <output expression="&quot;please amy key to roll dice&quot;" newline="True"/>
+                <input variable="key"/>
+                <output expression="&quot;Roll # &quot; &amp; i" newline="True"/>
+                <assign variable="dice1" expression="random(6) + 1"/>
+                <assign variable="dice2" expression="random (6) +1"/>
+                <output expression="&quot;Dice 1 : &quot; &amp; dice1" newline="True"/>
+                <output expression="&quot;Dice 2 : &quot; &amp; dice2" newline="True"/>
+                <assign variable="add" expression="dice1 + dice2"/>
+                <output expression="&quot;the add the dices is : &quot; &amp; add" newline="True"/>
+                <if expression="add mod 2 = 0">
+                    <then>
+                        <assign variable="pair" expression="pair + 1"/>
+                        <if expression="dice1 == dice2">
+                            <then>
+                                <assign variable="equal" expression="equal + 1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </then>
+                    <else>
+                        <if expression="add %2 != 0">
+                            <then>
+                                <assign variable="odd" expression="odd + 1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <output expression="&quot;The pair number is: &quot; &amp; pair" newline="True"/>
+            <output expression="&quot;The odd number is: &quot; &amp; odd" newline="True"/>
+            <output expression="&quot;The equal number is: &quot; &amp; equal" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
